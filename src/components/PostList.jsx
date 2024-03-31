@@ -4,7 +4,7 @@ import { PostList as PostListData } from '../store/post-list-store'
 import Welcome from './Welcome'
 function PostList() {
   const { postList, fetching } = useContext(PostListData)
-  console.log("postlist" + postList)
+
 
   return (
     <>
@@ -16,9 +16,10 @@ function PostList() {
           </div> : <>
             {postList.length === 0 && <Welcome />}
 
-            {postList.map((post) => <Post
-              key={post.id}
-              post={post} />)}
+            {postList.map((post, index) => <Post
+              post={post}
+              key={index}
+            />)}
 
 
 

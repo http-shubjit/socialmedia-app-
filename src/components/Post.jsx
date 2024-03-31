@@ -22,7 +22,7 @@ function Post({ post }) {
         </div>
 
         {post.tags.map((tag) =>
-          (< span className="badge text-bg-secondary hashtag" key={tag} >{tag}</span>)
+          (< span className="badge text-bg-primary hashtag" key={tag} >{tag}</span>)
 
         )}
 

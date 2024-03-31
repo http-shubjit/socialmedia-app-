@@ -1,26 +1,23 @@
+import { Link } from "react-router-dom";
 
 
 // eslint-disable-next-line react/prop-types
-function Sidebar({ selectedTab, setSelectedTab }) {
+function Sidebar() {
 
 
   return (
     <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar" style={{ width: '200px' }}>
-      <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-
+      <Link to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <span className="fs-4">Sidebar</span>
-      </a>
+      </Link>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item" key="home" onClick={() => setSelectedTab("home")} >
-          <a href="#" className={`nav-link text-white ${selectedTab === "home" && 'active'}`} >
-            Home
-          </a>
+        <li className="nav-item" key="home" >
+          <Link to='/posts' className={`nav-link text-white`} >  Home
+          </Link>
         </li>
-        <li key="create_post" onClick={() => {
-          setSelectedTab("create_post")
-        }}>
-          <a href="#" className={`nav-link text-white ${selectedTab === "create_post" && 'active'}`}>
+        <li key="create_post" >
+          <a href="createpost" className={`nav-link text-white`}>
 
             Create Post
           </a>
@@ -28,10 +25,10 @@ function Sidebar({ selectedTab, setSelectedTab }) {
       </ul>
       <hr />
       <div className="dropdown">
-        <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <Link to="" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" />
           <strong>mdo</strong>
-        </a>
+        </Link>
         <ul className="dropdown-menu dropdown-menu-dark text-small shadow" style={{}}>
           <li><a className="dropdown-item" href="#">New project...</a></li>
           <li><a className="dropdown-item" href="#">Settings</a></li>

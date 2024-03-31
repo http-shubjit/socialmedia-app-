@@ -16,8 +16,8 @@ const postListReducer = (currPostList, action) => {
   }
 
   else if (action.type === "ADD") {
-    newPostList = [action.payload, ...currPostList]
-    console.log(newPostList)
+
+    newPostList = [...currPostList, action.payload]
   }
   else if (action.type === "ADD_INTIAL_POST") {
     newPostList = action.payload.posts
@@ -42,10 +42,16 @@ const PostListProvider = ({ children }) => {
   }, [])
 
 
-  const addPost = useCallback((post) => {
+  const addPost = useCallback((userId, title, body, tags) => {
     dispatchPostList({
       type: "ADD",
-      payload: post
+      payload: {
+        id: Date.now(),
+        userId: userId,
+        title: title,
+        body: body,
+        tags: tags
+      }
 
     })
   }, [dispatchPostList])
@@ -61,8 +67,6 @@ const PostListProvider = ({ children }) => {
 
 
   }, [dispatchPostList])
-
-
 
   useEffect(() => {
     const controller = new AbortController()
