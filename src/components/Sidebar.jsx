@@ -6,7 +6,9 @@ function Sidebar() {
 
 
   return (
-    <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar" style={{ width: '200px' }}>
+    <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar" style={{
+      maxWidth: '200px'
+    }}>
       <Link to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <span className="fs-4">Sidebar</span>
       </Link>
@@ -17,10 +19,10 @@ function Sidebar() {
           </Link>
         </li>
         <li key="create_post" >
-          <a href="createpost" className={`nav-link text-white`}>
+          <Link to="/createpost" className={`nav-link text-white`}>
 
             Create Post
-          </a>
+          </Link>
         </li>
       </ul>
       <hr />
@@ -37,7 +39,7 @@ function Sidebar() {
           <li><a className="dropdown-item" href="#">Sign out</a></li>
         </ul>
       </div>
-    </div>
+    </div >
   );
 }
 
